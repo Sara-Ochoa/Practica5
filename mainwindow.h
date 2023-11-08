@@ -7,7 +7,7 @@
 #include <QKeyEvent>
 #include <QList>
 #include <muro.h>
-
+#include <punto.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -29,5 +29,8 @@ private:
     Bolita *pacman;
     QGraphicsScene *escena;
     QList<Muro *> muros;
+    bool evaluarColision();
+    QList<punto *> puntos;
+    bool colisionPuntos();
 };
 #endif // MAINWINDOW_H

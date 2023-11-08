@@ -24,6 +24,44 @@
      </rect>
     </property>
    </widget>
+   <widget class="QLabel" name="lblPuntaje">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>10</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Black</family>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Puntaje: </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblVidas">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>10</y>
+      <width>49</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Black</family>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Vidas: </string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

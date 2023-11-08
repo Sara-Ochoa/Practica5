@@ -2,12 +2,23 @@
 #include <QPainter>
 #include <QPixmap>
 
+int Bolita::getPuntaje() const
+{
+    return puntaje;
+}
+
+void Bolita::setPuntaje(int newPuntaje)
+{
+    puntaje = newPuntaje;
+}
+
 Bolita::Bolita()
 {
     posx=0;
     posy=0;
     radio=0;
     velocidad=3;
+    puntaje=0;
 }
 
 Bolita::Bolita(int x, int y, int r)
@@ -16,6 +27,7 @@ Bolita::Bolita(int x, int y, int r)
     posy=y;
     radio=r;
     velocidad=3;
+    puntaje=0;
 
     setPos(posx, posy);
 }
@@ -43,6 +55,7 @@ void Bolita::moverIzquierda()
     posx -= velocidad;
     setPos(posx, posy);
 }
+
 
 QRectF Bolita::boundingRect() const
 {

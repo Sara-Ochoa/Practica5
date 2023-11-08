@@ -8,6 +8,7 @@ class Bolita: public QGraphicsItem
     int posy;
     int radio;
     int velocidad;
+    int puntaje;
 
 public:
     Bolita();
@@ -19,6 +20,8 @@ public:
     void moverAbajo();
     void moverDerecha();
     void moverIzquierda();
+    int getPuntaje() const;
+    void setPuntaje(int newPuntaje);
 };
 
 #endif // BOLITA_H

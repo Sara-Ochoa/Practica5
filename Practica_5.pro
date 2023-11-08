@@ -12,12 +12,14 @@ SOURCES += \
     bolita.cpp \
     main.cpp \
     mainwindow.cpp \
-    muro.cpp
+    muro.cpp \
+    punto.cpp
 
 HEADERS += \
     bolita.h \
     mainwindow.h \
-    muro.h
+    muro.h \
+    punto.h
 
 FORMS += \
     mainwindow.ui
