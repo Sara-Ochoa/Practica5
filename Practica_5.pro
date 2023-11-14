@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     bolita.cpp \
+    fantasma.cpp \
     main.cpp \
     mainwindow.cpp \
     muro.cpp \
@@ -17,6 +18,7 @@ SOURCES += \
 
 HEADERS += \
     bolita.h \
+    fantasma.h \
     mainwindow.h \
     muro.h \
     punto.h

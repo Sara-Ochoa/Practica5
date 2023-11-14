@@ -4,6 +4,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <QTimer>
 
 using namespace std;
 
@@ -22,8 +23,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->graphicsView->setBackgroundBrush(brochaF);
 
 
-    string linea, linea2;
-    ifstream archivoLectura, archivoLectura2;
+    string linea, linea2,linea3;
+    ifstream archivoLectura, archivoLectura2,archivoLectura3;
     archivoLectura.open("coordenadas.txt");
     if(archivoLectura.is_open()){
         while(getline(archivoLectura, linea)){
@@ -71,6 +72,35 @@ MainWindow::MainWindow(QWidget *parent)
             escena->addItem(puntos.back());
         }
     }
+
+    archivoLectura3.open("coordenadas3.txt");
+    if(archivoLectura3.is_open()){
+        while(getline(archivoLectura3, linea3)){
+            int x, y, ancho, alto;
+
+            istringstream ss(linea3);
+            string token;
+            int index = 0;
+            while (getline(ss, token, ',')) {
+                if (index == 0) {
+                    x = stoi(token); // Convierte la cadena a entero
+                } else if (index == 1) {
+                    y = stoi(token);
+                } else if (index == 2) {
+                    ancho = stoi(token);
+                } else if (index == 3) {
+                    alto = stoi(token);
+                }
+                index++;
+            }
+            fantasmas.push_back(new Fantasma(x,y,ancho,alto));
+            escena->addItem(fantasmas.back());
+        }
+    }
+
+    Timer = new QTimer(this);
+    Timer->start(100);
+    connect(Timer, SIGNAL(timeout()), this, SLOT(actualizarFantasmas()));
 }
 
 MainWindow::~MainWindow()
@@ -144,5 +174,12 @@ void MainWindow::colisionPuntos()
         i++;
     }
 
+}
+
+void MainWindow::actualizarFantasmas()
+{
+    foreach (Fantasma* fantasma, fantasmas) {
+        fantasma->actualizarPosicion();
+    }
 }
 

@@ -6,8 +6,9 @@
 #include <QGraphicsScene>
 #include <QKeyEvent>
 #include <QList>
-#include <muro.h>
-#include <punto.h>
+#include "muro.h"
+#include "punto.h"
+#include "fantasma.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,6 +24,7 @@ public:
 
 private slots:
     void keyPressEvent(QKeyEvent *ev);
+    void actualizarFantasmas();
 
 private:
     Ui::MainWindow *ui;
@@ -32,5 +34,7 @@ private:
     bool evaluarColision();
     QList<punto *> puntos;
     void colisionPuntos();
+    QList <Fantasma*> fantasmas;
+    QTimer *Timer;
 };
 #endif // MAINWINDOW_H
