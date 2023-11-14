@@ -31,6 +31,6 @@ private:
     QList<Muro *> muros;
     bool evaluarColision();
     QList<punto *> puntos;
-    bool colisionPuntos();
+    void colisionPuntos();
 };
 #endif // MAINWINDOW_H

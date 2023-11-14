@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     escena = new QGraphicsScene();
     escena->setSceneRect(0,0,759,529);
     ui->graphicsView->setScene(escena);
-    pacman = new Bolita(50,50,20);
+    pacman = new Bolita(50,50,15);
     escena->addItem(pacman);
 
     QBrush brochaF(Qt::black);
@@ -82,6 +82,7 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
 {
     if(ev->key()==Qt::Key_W){
         if(!evaluarColision()){
+            colisionPuntos();
             pacman->moverArriba();
         }
         else{
@@ -90,6 +91,7 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
     }
     else if(ev->key()==Qt::Key_S){
         if(!evaluarColision()){
+            colisionPuntos();
             pacman->moverAbajo();
         }
         else{
@@ -98,6 +100,7 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
     }
     else if(ev->key()==Qt::Key_D){
         if(!evaluarColision()){
+            colisionPuntos();
             pacman->moverDerecha();
         }
         else{
@@ -106,6 +109,7 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
     }
     else if(ev->key()==Qt::Key_A){
         if(!evaluarColision()){
+            colisionPuntos();
             pacman->moverIzquierda();
         }
         else{
@@ -124,15 +128,21 @@ bool MainWindow::evaluarColision()
     return false;
 }
 
-bool MainWindow::colisionPuntos()
+
+void MainWindow::colisionPuntos()
 {
+    int i = 0;
     for(QList<punto *>::iterator it=puntos.begin(); it!=puntos.end(); it++){
         if(pacman->collidesWithItem(*it)){
-            return true;
+            pacman->setPuntaje(pacman->getPuntaje()+1);
+            ui->lblPuntaje->setText("Puntaje: "+QVariant(pacman->getPuntaje()).toString());
+            QGraphicsItem* item = puntos.takeAt(i);
+            escena->removeItem(item);
+            puntos.removeOne(item);
+            delete item;
         }
+        i++;
     }
-    return false;
+
 }
-
-
 
