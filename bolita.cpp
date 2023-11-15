@@ -12,12 +12,22 @@ void Bolita::setPuntaje(int newPuntaje)
     puntaje = newPuntaje;
 }
 
+int Bolita::getVida() const
+{
+    return vida;
+}
+
+void Bolita::setVida(int newVida)
+{
+    vida = newVida;
+}
+
 Bolita::Bolita()
 {
     posx=0;
     posy=0;
     radio=0;
-    velocidad=3;
+    velocidad=5;
     puntaje=0;
 }
 
@@ -26,7 +36,7 @@ Bolita::Bolita(int x, int y, int r)
     posx=x;
     posy=y;
     radio=r;
-    velocidad=3;
+    velocidad=5;
     puntaje=0;
 
     setPos(posx, posy);

@@ -13,6 +13,7 @@ Fantasma::Fantasma(int x, int y, int ancho, int alto)
     posy = y;
     this->ancho = ancho;
     this->alto = alto;
+    velocidad = 20;
 
     setPos(posx,posy);
 }

@@ -101,6 +101,11 @@ MainWindow::MainWindow(QWidget *parent)
     Timer = new QTimer(this);
     Timer->start(100);
     connect(Timer, SIGNAL(timeout()), this, SLOT(actualizarFantasmas()));
+
+    Timer1 = new QTimer(this);
+    Timer1->start(50);
+    connect(Timer1, SIGNAL(timeout()), this, SLOT(colisionFantasmas()));
+
 }
 
 MainWindow::~MainWindow()
@@ -174,6 +179,21 @@ void MainWindow::colisionPuntos()
         i++;
     }
 
+}
+
+void MainWindow::colisionFantasmas()
+{
+    for(QList<Fantasma*>::iterator it=fantasmas.begin(); it!=fantasmas.end(); it++){
+        if(pacman->collidesWithItem(*it)){
+            if(pacman->getVida()<=0){
+                close();
+            }
+            else{
+                pacman->setVida(pacman->getVida()-1);
+                ui->lblVidas->setText("Vida: "+QVariant(pacman->getVida()).toString());
+            }
+        }
+    }
 }
 
 void MainWindow::actualizarFantasmas()

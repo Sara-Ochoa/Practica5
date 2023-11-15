@@ -25,6 +25,7 @@ public:
 private slots:
     void keyPressEvent(QKeyEvent *ev);
     void actualizarFantasmas();
+    void colisionFantasmas();
 
 private:
     Ui::MainWindow *ui;
@@ -36,5 +37,7 @@ private:
     void colisionPuntos();
     QList <Fantasma*> fantasmas;
     QTimer *Timer;
+    QTimer *Timer1;
+
 };
 #endif // MAINWINDOW_H

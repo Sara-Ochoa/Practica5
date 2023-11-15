@@ -8,7 +8,7 @@ class Fantasma: public QGraphicsItem
     int posy;
     int alto;
     int ancho;
-    int velocidad=10;
+    int velocidad=20;
 public:
     Fantasma();
     Fantasma(int x, int y, int ancho, int alto);
