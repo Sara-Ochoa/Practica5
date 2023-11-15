@@ -59,7 +59,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Vidas: 20</string>
+     <string>Vidas: 10</string>
     </property>
    </widget>
   </widget>

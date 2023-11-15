@@ -9,7 +9,7 @@ class Bolita: public QGraphicsItem
     int radio;
     int velocidad;
     int puntaje;
-    int vida=20;
+    int vida=10;
 
 public:
     Bolita();

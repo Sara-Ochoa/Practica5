@@ -123,6 +123,9 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
         else{
             pacman->moverAbajo();
         }
+        if(pacman->getPuntaje()==96){
+            close();
+        }
     }
     else if(ev->key()==Qt::Key_S){
         if(!evaluarColision()){
@@ -131,6 +134,9 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
         }
         else{
             pacman->moverArriba();
+        }
+        if(pacman->getPuntaje()==96){
+            close();
         }
     }
     else if(ev->key()==Qt::Key_D){
@@ -141,6 +147,9 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
         else{
             pacman->moverIzquierda();
         }
+        if(pacman->getPuntaje()==96){
+            close();
+        }
     }
     else if(ev->key()==Qt::Key_A){
         if(!evaluarColision()){
@@ -149,6 +158,9 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
         }
         else{
             pacman->moverDerecha();
+        }
+        if(pacman->getPuntaje()==96){
+            close();
         }
     }
 }
